@@ -22,4 +22,5 @@ seqkit rename Avian-families.fa > Avian-families.id.fa
 cd-hit-est -T 10 -i Avian-families.id.fa -o Avian-cdhit.fa -M 0 -d 0 -aS 0.8 -c 0.8 -G 0 -g 1 -b 500
 
 #and scan for proteins
-pfam_scan.pl -fasta Avian-cdhit.fa -dir $pfamdb > pfam.results
+getorf -sequence Avian-cdhit.fa -outseq Avian-cdhit.trns.fa
+pfam_scan.pl -fasta Avian-cdhit.trns.fa -dir $pfamdb > pfam.results
